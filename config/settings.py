@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'returns',
     'referrals',
     'wallet',
+    'reviews',
 ]
 
 MIDDLEWARE = [
