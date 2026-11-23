@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User , Address
 
 
 @admin.register(User)
@@ -27,3 +27,9 @@ class CustomUserAdmin(UserAdmin):
                        'is_staff', 'is_superuser', 'is_active'),
         }),
     )
+
+@admin.register(Address)
+class AddressAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'phone', 'city', 'state', 'user', 'is_default')
+    search_fields = ('full_name', 'phone', 'city', 'user__email')
+    list_filter = ('state', 'is_default')    
