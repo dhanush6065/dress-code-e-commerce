@@ -31,3 +31,4 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager()
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
