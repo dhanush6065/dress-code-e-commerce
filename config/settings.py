@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'offers',
     'payments',
     'returns',
+    'referrals',
 ]
 
 MIDDLEWARE = [
