@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+
+    <h1>Order Details</h1>
+
+    <h2>Order Information</h2>
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Payment Method:</strong> {{ order.payment_method }}</p>
+    <p><strong>Payment Status:</strong> {{ order.payment_status }}</p>
+    <p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+    <p><strong>Created At:</strong> {{ order.created_at }}</p>
+
+    <hr>
+
+    <h2>Customer Details</h2>
+    <p><strong>Email:</strong> {{ order.user.email }}</p>
+    <p><strong>Name:</strong> {{ order.address.full_name }}</p>
+    <p><strong>Phone:</strong> {{ order.address.phone }}</p>
+
+    <hr>
+
+    <h2>Delivery Address</h2>
+    <p>{{ order.address.house_name }}</p>
+    <p>{{ order.address.street }}</p>
+    <p>{{ order.address.city }}</p>
+    <p>{{ order.address.state }}</p>
+    <p>{{ order.address.pincode }}</p>
+
+    <hr>
+
+    <h2>Ordered Products</h2>
+
+    {% for item in order.items.all %}
+        <div>
+            <p><strong>Product:</strong> {{ item.product_variant.product.name }}</p>
+            <p><strong>Size:</strong> {{ item.product_variant.size }}</p>
+            <p><strong>Color:</strong> {{ item.product_variant.color }}</p>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p><strong>Price:</strong> ₹{{ item.price }}</p>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No products found for this order.</p>
+    {% endfor %}
+
+    <h2>Payment Transactions</h2>
+
+    {% for payment in order.payments.all %}
+        <p><strong>Transaction ID:</strong> {{ payment.transaction_id|default:"N/A" }}</p>
+        <p><strong>Amount:</strong> ₹{{ payment.amount }}</p>
+        <p><strong>Status:</strong> {{ payment.status }}</p>
+        <p><strong>Payment Date:</strong> {{ payment.payment_date|default:"N/A" }}</p>
+        <hr>
+    {% empty %}
+        <p>No payment transaction records found.</p>
+    {% endfor %}
+
+</body>
+</html>
