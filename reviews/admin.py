@@ -12,6 +12,7 @@ class ProductReviewAdmin(admin.ModelAdmin):
         'status',
         'created_at',
     )
+    list_editable = ('status',)
 
     list_filter = ('rating', 'status', 'created_at')
 
