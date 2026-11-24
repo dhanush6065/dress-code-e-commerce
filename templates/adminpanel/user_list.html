@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Users - Dress Code</title>
+</head>
+<body>
+
+    <h1>Manage Users</h1>
+    <form method="GET">
+    <input type="text" name="search" placeholder="Search by email or name"
+           value="{{ search_query }}">
+    <button type="submit">Search</button>
+    <a href="{% url 'user_list' %}">Clear</a>
+    </form>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status</th>
+                <th>Date Joined</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>
+                    {% if user.is_active %}
+                        Active
+                    {% else %}
+                        Blocked
+                    {% endif %}
+                </td>
+                <td>{{ user.date_joined }}</td>
+                <td>
+                    {% if not user.is_superuser %}
+                        <form method="POST" action="{% url 'toggle_user_status' user.id %}">
+                            {% csrf_token %}
+                            <button type="submit"
+                                onclick="return confirm('Are you sure you want to change this user status?');">
+                                {% if user.is_active %}
+                                    Block
+                                {% else %}
+                                    Unblock
+                                {% endif %}
+                            </button>
+                        </form>
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No users found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+    {% if page_obj.has_previous %}
+        <a href="?page=1&search={{ search_query }}">First</a>
+        <a href="?page={{ page_obj.previous_page_number }}&search={{ search_query }}">Previous</a>
+    {% endif %}
+
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}&search={{ search_query }}">Next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}&search={{ search_query }}">Last</a>
+    {% endif %}
+    </div>
+
+</body>
+</html>

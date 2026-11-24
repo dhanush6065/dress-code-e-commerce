@@ -1,3 +1,1 @@
-from django.contrib import admin
-
-# Register your models here.
+# Leave this file empty for now.
