@@ -51,3 +51,19 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.city}"    
+
+
+class OTPVerification(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='otp_verifications'
+    )
+    otp_hash = models.CharField(max_length=255)
+    purpose = models.CharField(max_length=30)
+    attempts = models.PositiveIntegerField(default=0)
+    expires_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.email} - {self.purpose}"    

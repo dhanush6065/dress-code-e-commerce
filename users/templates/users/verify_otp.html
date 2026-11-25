@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Email - Dress Code</title>
+</head>
+<body>
+
+    <h1>Verify Your Email</h1>
+
+    <p>Enter the six-digit OTP sent to your email address.</p>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="otp">Enter OTP:</label>
+        <input
+            type="text"
+            id="otp"
+            name="otp"
+            maxlength="6"
+            required
+        >
+
+        <button type="submit">Verify OTP</button>
+    </form>
+
+</body>
+</html>
