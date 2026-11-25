@@ -211,6 +211,22 @@ def reset_password_otp(request):
 
     return render(request, 'users/reset_password_otp.html')
 
+@require_POST
+def resend_password_reset_otp(request):
+    user_id = request.session.get('password_reset_user_id')
+
+    if not user_id:
+        return redirect('forgot_password')
+
+    user = User.objects.filter(id=user_id, is_active=True).first()
+
+    if not user:
+        return redirect('forgot_password')
+
+    send_signup_otp(user, purpose='password_reset')
+
+    return redirect('reset_password_otp')
+
 
 def set_new_password(request):
     user_id = request.session.get('password_reset_user_id')
