@@ -10,6 +10,8 @@
 
     {% if user.is_authenticated %}
         <p>Welcome, {{ user.first_name }}!</p>
+        <a href="{% url 'profile' %}">My Profile</a>
+    <br><br>
 
         <form method="POST" action="{% url 'logout' %}">
             {% csrf_token %}

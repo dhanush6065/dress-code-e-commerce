@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,9 @@
 <body>
 
     <h1>Login to Dress Code</h1>
+
     {% if error %}
-    <p style="color: red;">{{ error }}</p>
+        <p style="color: red;">{{ error }}</p>
     {% endif %}
 
     <form method="POST">
@@ -24,9 +26,19 @@
         <br><br>
 
         <button type="submit">Login</button>
+
         <br><br>
+
         <a href="{% url 'forgot_password' %}">Forgot Password?</a>
     </form>
+
+    <br>
+
+    <p>Or</p>
+
+    <a href="{% url 'google_login' %}">
+        <button type="button">Continue with Google</button>
+    </a>
 
 </body>
 </html>

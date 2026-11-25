@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify New Email - Dress Code</title>
+</head>
+<body>
+
+    <h1>Verify Your New Email</h1>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label for="otp">Enter OTP:</label>
+        <input type="text" id="otp" name="otp" maxlength="6" required>
+
+        <br><br>
+
+        <button type="submit">Verify Email</button>
+    </form>
+
+    <a href="{% url 'change_email' %}">Back</a>
+
+</body>
+</html>

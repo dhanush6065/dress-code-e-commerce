@@ -9,8 +9,9 @@
     <h1>Verify Your Email</h1>
 
     <p>Enter the six-digit OTP sent to your email address.</p>
+
     {% if error %}
-    <p style="color: red;">{{ error }}</p>
+        <p style="color: red;">{{ error }}</p>
     {% endif %}
 
     <form method="POST">
@@ -27,6 +28,39 @@
 
         <button type="submit">Verify OTP</button>
     </form>
+
+    <p>OTP expires in: <span id="timer">05:00</span></p>
+
+    <form method="POST" action="{% url 'resend_signup_otp' %}">
+        {% csrf_token %}
+        <button type="submit" id="resendButton" disabled>
+            Resend OTP
+        </button>
+    </form>
+
+    <script>
+        let timeLeft = 300;
+
+        const timerDisplay = document.getElementById('timer');
+        const resendButton = document.getElementById('resendButton');
+
+        const countdown = setInterval(function () {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+
+            timerDisplay.textContent =
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerDisplay.textContent = 'Expired';
+                resendButton.disabled = false;
+            }
+
+            timeLeft--;
+        }, 1000);
+    </script>
 
 </body>
 </html>

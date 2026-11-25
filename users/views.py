@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm
+from .forms import RegistrationForm , ProfileUpdateForm
 import random
 from datetime import timedelta
 
@@ -11,7 +11,11 @@ from django.utils import timezone
 from .models import OTPVerification , User
 from django.contrib.auth import authenticate, login ,logout
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
+
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 # Create your views here.
 def home(request):
     return render(request, 'users/index.html')
@@ -259,3 +263,148 @@ def set_new_password(request):
 
     return render(request, 'users/set_new_password.html')
 
+
+@login_required
+def customer_profile(request):
+    return render(request, 'users/profile.html')
+
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileUpdateForm(instance=request.user)
+
+    return render(request, 'users/edit_profile.html', {
+        'form': form
+    })
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            return redirect('profile')
+    else:
+        form = PasswordChangeForm(request.user)
+
+    return render(request, 'users/change_password.html', {
+        'form': form
+    })
+
+
+@login_required
+def change_email(request):
+    if request.method == 'POST':
+        new_email = request.POST.get('email', '').strip().lower()
+
+        if User.objects.filter(email__iexact=new_email).exists():
+            return render(request, 'users/change_email.html', {
+                'error': 'This email is already registered.'
+            })
+
+        if not new_email:
+            return render(request, 'users/change_email.html', {
+                'error': 'Email is required.'
+            })
+
+        otp = str(random.randint(100000, 999999))
+
+        OTPVerification.objects.filter(
+            user=request.user,
+            purpose='email_change'
+        ).delete()
+
+        OTPVerification.objects.create(
+            user=request.user,
+            otp_hash=make_password(otp),
+            purpose='email_change',
+            expires_at=timezone.now() + timedelta(minutes=5)
+        )
+
+        request.session['new_email'] = new_email
+
+        send_mail(
+            'Email Change Verification OTP',
+            f'Your OTP for changing your email is {otp}. It expires in 5 minutes.',
+            None,
+            [new_email],
+        )
+
+        return redirect('verify_new_email')
+
+    return render(request, 'users/change_email.html')
+
+
+@login_required
+def verify_new_email(request):
+    new_email = request.session.get('new_email')
+
+    if not new_email:
+        return redirect('change_email')
+
+    if request.method == 'POST':
+        entered_otp = request.POST.get('otp', '')
+
+        otp_record = OTPVerification.objects.filter(
+            user=request.user,
+            purpose='email_change'
+        ).last()
+
+        if not otp_record:
+            return render(request, 'users/verify_new_email.html', {
+                'error': 'OTP not found. Please request a new OTP.'
+            })
+
+        if otp_record.expires_at < timezone.now():
+            return render(request, 'users/verify_new_email.html', {
+                'error': 'OTP expired. Please request a new OTP.'
+            })
+
+        if otp_record.attempts >= 5:
+            return render(request, 'users/verify_new_email.html', {
+                'error': 'Too many attempts. Please request a new OTP.'
+            })
+
+        otp_record.attempts += 1
+        otp_record.save()
+
+        if check_password(entered_otp, otp_record.otp_hash):
+            request.user.email = new_email
+            request.user.save()
+
+            otp_record.delete()
+            request.session.pop('new_email', None)
+
+            return redirect('profile')
+
+        return render(request, 'users/verify_new_email.html', {
+            'error': 'Invalid OTP. Please try again.'
+        })
+
+    return render(request, 'users/verify_new_email.html')
+
+
+
+@require_POST
+def resend_signup_otp(request):
+    user_id = request.session.get('pending_user_id')
+
+    if not user_id:
+        return redirect('signup')
+
+    user = User.objects.filter(id=user_id, is_active=False).first()
+
+    if not user:
+        return redirect('signup')
+
+    send_signup_otp(user)
+
+    return redirect('verify_otp')

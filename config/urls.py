@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('users.urls')),
     path('adminpanel/', include('adminpanel.urls')),
     path('accounts/', include('allauth.urls')),
+    
 ]
 
 if settings.DEBUG:
@@ -30,4 +31,3 @@ if settings.DEBUG:
 
 
 
-    

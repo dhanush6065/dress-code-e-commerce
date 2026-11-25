@@ -25,3 +25,23 @@ class RegistrationForm(UserCreationForm):
             )
 
         return email
+
+
+
+class ProfileUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'profile_picture' ]
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if User.objects.filter(email__iexact=email).exclude(
+            pk=self.instance.pk
+        ).exists():
+            raise forms.ValidationError(
+                'An account with this email already exists.'
+            )
+
+        return email    
