@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Address - Dress Code</title>
+</head>
+<body>
+
+    <h1>Add New Address</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Save Address</button>
+    </form>
+
+    <a href="{% url 'profile' %}">Back to Profile</a>
+
+</body>
+</html>

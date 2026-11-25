@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.shortcuts import render, redirect
-from .forms import RegistrationForm , ProfileUpdateForm
+from django.shortcuts import render, redirect , get_object_or_404
+from .forms import RegistrationForm , ProfileUpdateForm , AddressForm
 import random
 from datetime import timedelta
 
@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.hashers import make_password , check_password
 from django.utils import timezone
 
-from .models import OTPVerification , User
+from .models import OTPVerification , User , Address
 from django.contrib.auth import authenticate, login ,logout
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
@@ -408,3 +408,76 @@ def resend_signup_otp(request):
     send_signup_otp(user)
 
     return redirect('verify_otp')
+
+
+@login_required
+def add_address(request):
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+
+        if form.is_valid():
+            address = form.save(commit=False)
+            address.user = request.user
+            address.save()
+
+            return redirect('profile')
+    else:
+        form = AddressForm()
+
+    return render(request, 'users/add_address.html', {
+        'form': form
+    })
+
+
+@login_required
+def edit_address(request, address_id):
+    address = get_object_or_404(
+        Address,
+        id=address_id,
+        user=request.user
+    )
+
+    if request.method == 'POST':
+        form = AddressForm(request.POST, instance=address)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = AddressForm(instance=address)
+
+    return render(request, 'users/edit_address.html', {
+        'form': form
+    })
+
+
+
+@login_required
+@require_POST
+def delete_address(request, address_id):
+    address = get_object_or_404(
+        Address,
+        id=address_id,
+        user=request.user
+    )
+
+    address.delete()
+
+    return redirect('profile')
+
+
+@login_required
+@require_POST
+def set_default_address(request, address_id):
+    address = get_object_or_404(
+        Address,
+        id=address_id,
+        user=request.user
+    )
+
+    Address.objects.filter(user=request.user).update(is_default=False)
+
+    address.is_default = True
+    address.save()
+
+    return redirect('profile')

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import User , Address
 
 
 class RegistrationForm(UserCreationForm):
@@ -44,4 +44,18 @@ class ProfileUpdateForm(forms.ModelForm):
                 'An account with this email already exists.'
             )
 
-        return email    
+        return email  
+
+class AddressForm(forms.ModelForm):
+
+    class Meta:
+        model = Address
+        fields = [
+            'full_name',
+            'phone',
+            'house_name',
+            'street',
+            'city',
+            'state',
+            'pincode',
+        ]      
