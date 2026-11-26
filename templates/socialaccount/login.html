@@ -1,0 +1,149 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue with Google | Dress Code</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #FAF8F5;
+            color: #111111;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .confirmation-card {
+            background: #FFFFFF;
+            width: 100%;
+            max-width: 420px;
+            padding: 45px 35px;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
+        }
+
+        .google-logo {
+            margin-bottom: 18px;
+        }
+
+        .google-logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .heading {
+            font-size: 23px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        .google-button {
+            width: 100%;
+            padding: 14px;
+            background: #111111;
+            color: #FFFFFF;
+            border: none;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .google-button:hover {
+            background: #333333;
+        }
+
+        .cancel-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666666;
+            text-decoration: none;
+        }
+
+        .cancel-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-text {
+            margin-top: 35px;
+            font-size: 11px;
+            color: #888888;
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-card {
+                padding: 35px 25px;
+            }
+
+            .heading {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="confirmation-card">
+
+        <div class="brand">DRESS CODE</div>
+
+        <div class="google-logo">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo">
+        </div>
+
+        <h1 class="heading">Continue with Google</h1>
+
+        <p class="description">
+            You are about to sign in to Dress Code using your Google account.
+            Confirm below to continue.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <button type="submit" class="google-button">
+                CONTINUE
+            </button>
+        </form>
+
+        <a href="{% url 'login' %}" class="cancel-link">
+            Cancel and return to login
+        </a>
+
+        <p class="footer-text">
+            Secure authentication · Dress Code
+        </p>
+
+    </div>
+
+</body>
+</html>

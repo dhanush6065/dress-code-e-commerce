@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -42,19 +41,26 @@
                     MY PROFILE <span>›</span>
                 </a>
 
-                <a href="#" class="menu-item">ORDERS & RETURNS</a>
+                <a href="#" class="menu-item">ORDERS &amp; RETURNS</a>
 
                 <a href="#" class="menu-item">SAVED ITEMS</a>
 
-                <a href="#" class="menu-item">MY ADDRESSES</a>
+                <a href="{% url 'my_addresses' %}" class="menu-item">
+                    MY ADDRESSES
+                </a>
 
                 <a href="#" class="menu-item">PAYMENT METHODS</a>
 
-                <a href="#" class="menu-item">SECURITY & SETTINGS</a>
+                <a href="#" class="menu-item">SECURITY &amp; SETTINGS</a>
             </nav>
 
             <div class="sidebar-bottom">
-                <a href="{% url 'logout' %}" class="logout-link">⇥ &nbsp; LOG OUT</a>
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-link">
+                        ⇥ &nbsp; LOG OUT
+                    </button>
+                </form>
             </div>
         </aside>
 
