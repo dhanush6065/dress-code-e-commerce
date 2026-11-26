@@ -531,3 +531,12 @@ def set_default_address(request, address_id):
     address.save()
 
     return redirect('profile')
+
+@never_cache
+@login_required
+def my_addresses(request):
+    addresses = Address.objects.filter(user=request.user)
+
+    return render(request, 'users/my_addresses.html', {
+        'addresses': addresses
+    })

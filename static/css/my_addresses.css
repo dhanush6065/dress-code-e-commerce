@@ -1,0 +1,458 @@
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    height: 45px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111111;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-icons a {
+    text-decoration: none;
+    color: #111111;
+    font-size: 15px;
+}
+
+/* =========================
+   ACCOUNT LAYOUT
+========================= */
+.account-layout {
+    display: flex;
+    gap: 28px;
+    padding: 30px 4% 45px;
+    min-height: 590px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.account-sidebar {
+    width: 158px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-heading {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
+    color: #777777;
+    margin: 0 0 16px;
+}
+
+.account-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9px;
+    border-bottom: 1px solid #eeeeee;
+    text-decoration: none;
+    color: #333333;
+    font-size: 8px;
+    letter-spacing: .5px;
+}
+
+.menu-item.active {
+    background: #111111;
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom-color: #111111;
+}
+
+.menu-item.active span {
+    font-size: 12px;
+}
+
+.sidebar-bottom {
+    margin-top: 20px;
+}
+
+.logout-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 7px;
+    letter-spacing: .8px;
+}
+
+/* =========================
+   CONTENT AREA
+========================= */
+.address-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.breadcrumb {
+    color: #777777;
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.page-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.page-heading h1 {
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: .2px;
+    margin: 0 0 5px;
+}
+
+.page-heading p {
+    font-size: 8px;
+    color: #666666;
+    margin: 0;
+}
+
+/* =========================
+   ADD NEW ADDRESS BUTTON
+========================= */
+.add-new-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 7px;
+    letter-spacing: .7px;
+    padding: 8px 13px;
+    white-space: nowrap;
+}
+
+/* =========================
+   ADDRESS GRID
+========================= */
+.address-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+/* =========================
+   ADDRESS CARD
+========================= */
+.address-card {
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    min-height: 178px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.card-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 11px;
+}
+
+.address-label {
+    display: inline-block;
+    background: #f3f3f3;
+    color: #555555;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    padding: 4px 6px;
+}
+
+.dark-label {
+    background: #111111;
+    color: #ffffff;
+}
+
+.default-indicator {
+    font-size: 7px;
+    letter-spacing: .5px;
+    color: #333333;
+}
+
+.set-default-link {
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 7px;
+    letter-spacing: .5px;
+    color: #333333;
+    cursor: pointer;
+    padding: 0;
+}
+
+.address-card h3 {
+    margin: 0 0 3px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .3px;
+}
+
+.address-phone {
+    color: #777777;
+    font-size: 8px;
+    margin: 0 0 10px;
+}
+
+.address-details {
+    background: #f3f3f3;
+    min-height: 43px;
+    padding: 8px;
+    font-size: 8px;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.address-details p {
+    margin: 0;
+}
+
+/* =========================
+   CARD FOOTER ACTIONS
+========================= */
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 11px;
+}
+
+.card-actions a,
+.card-actions button {
+    text-decoration: none;
+    border: none;
+    background: none;
+    color: #333333;
+    cursor: pointer;
+    padding: 0;
+    font-size: 7px;
+    letter-spacing: .5px;
+    font-weight: 600;
+}
+
+.card-actions form {
+    margin: 0;
+}
+
+.card-actions button {
+    color: #777777;
+}
+
+.empty-address {
+    font-size: 9px;
+    color: #777777;
+}
+
+/* =========================
+   ADD ADDRESS CARD
+========================= */
+.add-address-card {
+    border: 1px dashed #dddddd;
+    background: #f3f3f3;
+    min-height: 178px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #111111;
+    padding: 20px;
+    text-align: center;
+}
+
+.add-address-card:hover {
+    border-color: #111111;
+}
+
+.add-icon {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    border: 1px solid #777777;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    line-height: 24px;
+}
+
+.add-address-card strong {
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.add-address-card p {
+    font-size: 7px;
+    color: #777777;
+    margin: 0;
+}
+
+/* =========================
+   SECURITY NOTE
+========================= */
+.security-note {
+    text-align: center;
+    font-size: 7px;
+    color: #888888;
+    letter-spacing: 1px;
+    margin-top: 45px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    border-top: 1px solid #eeeeee;
+    padding: 12px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-brand strong {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+.footer-brand span {
+    font-size: 7px;
+    color: #888888;
+    letter-spacing: .5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 17px;
+}
+
+.footer-links a {
+    color: #555555;
+    text-decoration: none;
+    font-size: 7px;
+    letter-spacing: .6px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .account-layout {
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .account-sidebar {
+        width: 170px;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        height: auto;
+        padding: 18px 20px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .account-layout {
+        flex-direction: column;
+        padding: 25px 20px;
+    }
+
+    .account-sidebar {
+        width: 100%;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}

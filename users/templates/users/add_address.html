@@ -1,22 +1,173 @@
 
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Address - Dress Code</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Address - Dress Code</title>
+    <link rel="stylesheet" href="{% static 'css/add_address.css' %}">
 </head>
 <body>
 
-    <h1>Add New Address</h1>
+<header class="navbar">
+    <div class="logo">DRESS CODE</div>
 
-    <form method="POST">
-        {% csrf_token %}
+    <nav class="nav-links">
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="#">SHOP</a>
+        <a href="#">CATEGORIES</a>
+    </nav>
 
-        {{ form.as_p }}
+    <div class="nav-icons">
+        <a href="#" aria-label="Search">⌕</a>
+        <a href="#" aria-label="Wishlist">♡</a>
+        <a href="#" aria-label="Cart">▢</a>
+        <a href="{% url 'profile' %}" aria-label="Profile">●</a>
+    </div>
+</header>
 
-        <button type="submit">Save Address</button>
-    </form>
+<main class="account-layout">
 
-    <a href="{% url 'profile' %}">Back to Profile</a>
+    <aside class="account-sidebar">
+        <p class="sidebar-heading">ACCOUNT NAVIGATION</p>
+
+        <nav class="account-menu">
+            <a href="#" class="menu-item">DASHBOARD <span>›</span></a>
+            <a href="{% url 'profile' %}" class="menu-item">MY PROFILE <span>›</span></a>
+            <a href="#" class="menu-item">ORDERS & RETURNS <span>›</span></a>
+            <a href="#" class="menu-item">SAVED ITEMS <span>›</span></a>
+            <a href="{% url 'my_addresses' %}" class="menu-item active">MY ADDRESSES <span>›</span></a>
+            <a href="#" class="menu-item">PAYMENT METHODS <span>›</span></a>
+            <a href="#" class="menu-item">SECURITY & SETTINGS <span>›</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="{% url 'logout' %}" class="logout-link">⇥ &nbsp; LOG OUT</a>
+        </div>
+    </aside>
+
+    <section class="address-content">
+
+        <p class="breadcrumb">
+            ACCOUNT / MY ADDRESSES / ADD NEW ADDRESS
+        </p>
+
+        <div class="page-heading">
+            <h1>ADD NEW ADDRESS</h1>
+            <p>Enter your delivery address details.</p>
+        </div>
+
+        <div class="form-card">
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+                        <label for="{{ form.full_name.id_for_label }}">FULL NAME *</label>
+                        {{ form.full_name }}
+                        {% for error in form.full_name.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="{{ form.phone.id_for_label }}">PHONE NUMBER *</label>
+                        {{ form.phone }}
+                        {% for error in form.phone.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="{{ form.house_name.id_for_label }}">HOUSE / BUILDING NAME *</label>
+                        {{ form.house_name }}
+                        {% for error in form.house_name.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field full-width">
+                        <label for="{{ form.street.id_for_label }}">STREET / AREA *</label>
+                        {{ form.street }}
+                        {% for error in form.street.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="{{ form.city.id_for_label }}">CITY *</label>
+                        {{ form.city }}
+                        {% for error in form.city.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="{{ form.state.id_for_label }}">STATE *</label>
+                        {{ form.state }}
+                        {% for error in form.state.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="{{ form.pincode.id_for_label }}">PIN CODE *</label>
+                        {{ form.pincode }}
+                        {% for error in form.pincode.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-field address-type-field">
+                        <label>ADDRESS TYPE</label>
+                        <div class="address-type-buttons">
+                            <button type="button" class="type-button active">HOME</button>
+                            <button type="button" class="type-button">OFFICE</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <div class="form-footer">
+                    <a href="{% url 'my_addresses' %}" class="cancel-button">CANCEL</a>
+                    <button type="submit" class="save-button">
+                        SAVE ADDRESS &nbsp; →
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <p class="security-note">
+            ♙ &nbsp; ENCRYPTED ATELIER PROTOCOL / SSL 256-BIT / DISPATCH LOGISTICS READY
+        </p>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-brand">
+        <strong>DRESS CODE</strong>
+        <span>© 2026 DRESS CODE ATELIER. ALL RIGHTS RESERVED.</span>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">ABOUT US</a>
+        <a href="#">CONTACT US</a>
+        <a href="#">PRIVACY POLICY</a>
+    </div>
+</footer>
 
 </body>
 </html>

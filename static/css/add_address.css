@@ -1,0 +1,448 @@
+
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 46px;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-icons a {
+    text-decoration: none;
+    color: #111;
+    font-size: 15px;
+}
+
+/* ACCOUNT LAYOUT */
+.account-layout {
+    display: flex;
+    gap: 28px;
+    padding: 28px 4% 45px;
+    min-height: 650px;
+}
+
+/* SIDEBAR */
+.account-sidebar {
+    width: 158px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-heading {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
+    color: #777;
+    margin: 0 0 16px;
+}
+
+.account-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9px;
+    border-bottom: 1px solid #eeeeee;
+    text-decoration: none;
+    color: #333;
+    font-size: 8px;
+    letter-spacing: .5px;
+}
+
+.menu-item.active {
+    background: #111;
+    color: #fff;
+    font-weight: 600;
+    border-bottom-color: #111;
+}
+
+.menu-item.active span {
+    font-size: 12px;
+}
+
+.sidebar-bottom {
+    margin-top: 20px;
+}
+
+.logout-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 7px;
+    letter-spacing: .8px;
+}
+
+/* CONTENT */
+.address-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.breadcrumb {
+    color: #777;
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.page-heading {
+    margin-bottom: 20px;
+}
+
+.page-heading h1 {
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: .2px;
+    margin: 0 0 5px;
+}
+
+.page-heading p {
+    font-size: 9px;
+    color: #666;
+    margin: 0;
+}
+
+/* FORM CARD */
+.form-card {
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    max-width: 505px;
+    background: #fff;
+}
+
+/* FORM GRID */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 13px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    margin-bottom: 7px;
+    color: #333;
+}
+
+/* INPUTS */
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    height: 31px;
+    border: none;
+    outline: none;
+    background: #f3f3f3;
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    color: #444;
+    border-radius: 0;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 1px solid #111;
+    background: #f7f7f7;
+}
+
+/* ADDRESS TYPE */
+.address-type-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.address-type-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.type-button {
+    height: 31px;
+    border: none;
+    background: #f3f3f3;
+    color: #333;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+.type-button.active {
+    background: #111;
+    color: #fff;
+}
+
+/* ERRORS */
+.error-message {
+    display: block;
+    color: #b00020;
+    font-size: 8px;
+    margin-top: 5px;
+}
+
+/* FORM FOOTER */
+.form-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid #eeeeee;
+    margin-top: 25px;
+    padding-top: 15px;
+}
+
+.cancel-button {
+    color: #555;
+    text-decoration: none;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .8px;
+}
+
+.save-button {
+    background: #111;
+    color: #fff;
+    border: none;
+    height: 31px;
+    padding: 0 18px;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background: #333;
+}
+
+/* SECURITY NOTE */
+.security-note {
+    text-align: center;
+    font-size: 7px;
+    color: #888;
+    letter-spacing: 1px;
+    margin-top: 28px;
+}
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid #eeeeee;
+    padding: 12px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-brand strong {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+.footer-brand span {
+    font-size: 7px;
+    color: #888;
+    letter-spacing: .5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 17px;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    font-size: 7px;
+    letter-spacing: .6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .account-layout {
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .account-sidebar {
+        width: 170px;
+    }
+
+    .form-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    .navbar {
+        height: auto;
+        padding: 18px 20px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .account-layout {
+        flex-direction: column;
+        padding: 25px 20px;
+    }
+
+    .account-sidebar {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field.full-width {
+        grid-column: auto;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+/* Subtle typography adjustment to match Figma readability */
+
+.logo {
+    font-size: 14px;
+}
+
+.nav-links a {
+    font-size: 8px;
+}
+
+.nav-icons a {
+    font-size: 16px;
+}
+
+.sidebar-heading {
+    font-size: 8px;
+}
+
+.menu-item {
+    font-size: 9px;
+}
+
+.logout-link {
+    font-size: 8px;
+}
+
+.breadcrumb {
+    font-size: 8px;
+}
+
+.page-heading h1 {
+    font-size: 26px;
+}
+
+.page-heading p {
+    font-size: 10px;
+}
+
+.form-field label {
+    font-size: 8px;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    font-size: 10px;
+}
+
+.type-button {
+    font-size: 8px;
+}
+
+.cancel-button,
+.save-button {
+    font-size: 8px;
+}
+
+.security-note {
+    font-size: 8px;
+}
+
+.footer-brand strong {
+    font-size: 9px;
+}
+
+.footer-brand span,
+.footer-links a {
+    font-size: 8px;
+}
