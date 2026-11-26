@@ -1,0 +1,271 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f3;
+    color: #222;
+}
+
+/* Navbar */
+
+.navbar {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a,
+.signup-nav {
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.navbar nav a:hover,
+.signup-nav:hover {
+    color: #999;
+}
+
+.signup-nav {
+    border: 1px solid #222;
+    padding: 11px 20px;
+}
+
+/* Login Section */
+
+.login-section {
+    min-height: calc(100vh - 145px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 460px;
+    background-color: #fff;
+    padding: 55px 50px;
+    text-align: center;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #888;
+    margin-bottom: 18px;
+}
+
+.login-card h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* Form */
+
+.form-group {
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 13px;
+    background-color: #fff;
+}
+
+.form-group input:focus {
+    border-color: #333;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Forgot Password */
+
+.forgot-password {
+    text-align: right;
+    margin-top: -8px;
+    margin-bottom: 25px;
+}
+
+.forgot-password a {
+    color: #555;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+
+.login-button {
+    width: 100%;
+    height: 49px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #444;
+}
+
+/* Error Message */
+
+.error-message {
+    color: #c62828;
+    background-color: #fff0f0;
+    padding: 12px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* Divider */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    color: #999;
+    font-size: 11px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+/* Google Button */
+
+.google-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+.google-button:hover {
+    background-color: #f7f7f7;
+}
+
+/* Signup Link */
+
+.signup-text {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #777;
+}
+
+.signup-text a {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer p {
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .login-card {
+        padding: 40px 25px;
+    }
+
+    .login-card h1 {
+        font-size: 25px;
+    }
+}

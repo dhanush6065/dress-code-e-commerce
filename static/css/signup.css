@@ -1,0 +1,222 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f3;
+    color: #222;
+}
+
+/* Navbar */
+
+.navbar {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a,
+.login-nav {
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.navbar nav a:hover,
+.login-nav:hover {
+    color: #999;
+}
+
+.login-nav {
+    border: 1px solid #222;
+    padding: 11px 20px;
+}
+
+/* Signup Section */
+
+.signup-section {
+    min-height: calc(100vh - 155px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 20px;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 45px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+/* Heading */
+
+.eyebrow {
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.signup-container h1 {
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* Django Form Fields */
+
+.signup-container form p {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.signup-container form label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 9px;
+}
+
+.signup-container form input {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 0 12px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 13px;
+    outline: none;
+}
+
+.signup-container form input:focus {
+    border-color: #333;
+}
+
+.signup-container form ul {
+    text-align: left;
+    color: #888;
+    font-size: 11px;
+    padding-left: 18px;
+    margin-top: 8px;
+}
+
+.signup-container form .helptext {
+    display: block;
+    color: #888;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+/* Signup Button */
+
+.signup-container button {
+    width: 100%;
+    height: 48px;
+    margin-top: 8px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-container button:hover {
+    background-color: #444;
+}
+
+/* Login Link */
+
+.login-text {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #777;
+}
+
+.login-text a {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+
+.footer {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer p {
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .signup-container {
+        padding: 35px 22px;
+    }
+
+    .signup-container h1 {
+        font-size: 21px;
+    }
+}

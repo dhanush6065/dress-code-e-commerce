@@ -1,27 +1,196 @@
 
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dress Code</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Code | Fashion Store</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    <h1>Welcome to Dress Code</h1>
-    <p>Your fashion destination.</p>
 
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.first_name }}!</p>
-        <a href="{% url 'profile' %}">My Profile</a>
-    <br><br>
+    <!-- Header -->
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="logo">DRESS CODE</a>
 
-        <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
+        <nav class="nav-links">
+            <a href="{% url 'home' %}" class="active">HOME</a>
+            <a href="#">SHOP</a>
+            <a href="#">CATEGORIES</a>
+        </nav>
+
+        <div class="nav-icons">
+            <a href="#" aria-label="Search">⌕</a>
+            <a href="#" aria-label="Wishlist">♡</a>
+            <a href="#" aria-label="Cart">♧</a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" aria-label="Profile">♙</a>
+            {% else %}
+                <a href="{% url 'login' %}" aria-label="Login">♙</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">NEW COLLECTION</p>
+            <h1>ELEVATE YOUR STYLE</h1>
+            <p>Discover sophisticated essentials and timeless modern tailoring.</p>
+            <a href="#" class="shop-button">SHOP NOW</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" alt="Fashion model wearing modern clothing">
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories section">
+        <div class="section-heading">
+            <h2>SHOP BY CATEGORY</h2>
+            <a href="#">VIEW ALL →</a>
+        </div>
+
+        <div class="category-grid">
+            <a href="#" class="category-card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80" alt="Women's fashion">
+                <h3>WOMEN</h3>
+                <span>EXPLORE →</span>
+            </a>
+
+            <a href="#" class="category-card">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Men's fashion">
+                <h3>MEN</h3>
+                <span>EXPLORE →</span>
+            </a>
+
+            <a href="#" class="category-card">
+                <img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=600&q=80" alt="Kids fashion">
+                <h3>KIDS</h3>
+                <span>EXPLORE →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="arrivals section">
+        <div class="section-heading">
+            <h2>NEW ARRIVALS</h2>
+            <a href="#">VIEW ALL →</a>
+        </div>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80" alt="White shirt">
+                </div>
+                <p class="product-category">SHIRTING</p>
+                <h3>Oversized Linen Shirt</h3>
+                <p class="price">$120</p>
+                <button class="quick-add" type="button">+ QUICK ADD</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Black blazer">
+                </div>
+                <p class="product-category">TAILORING</p>
+                <h3>Structured Wool Blazer</h3>
+                <p class="price">$210</p>
+                <button class="quick-add" type="button">+ QUICK ADD</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Fashion trousers">
+                </div>
+                <p class="product-category">TROUSERS</p>
+                <h3>Tailored Pleated Trousers</h3>
+                <p class="price">$105</p>
+                <button class="quick-add" type="button">+ QUICK ADD</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Black dress">
+                </div>
+                <p class="product-category">DRESSES</p>
+                <h3>Slim Midi Dress</h3>
+                <p class="price">$150</p>
+                <button class="quick-add" type="button">+ QUICK ADD</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div>
+            <h2>JOIN THE DRESS CODE LIST</h2>
+            <p>Receive early access to seasonal capsule drops and private atelier sales.</p>
+        </div>
+
+        <form class="newsletter-form">
+            <input type="email" placeholder="EMAIL ADDRESS">
+            <button type="button">SUBSCRIBE</button>
         </form>
+    </section>
 
-    {% else %}
-        <a href="{% url 'signup' %}">Create an Account</a>
-        <br><br>
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-top">
+            <a href="{% url 'home' %}" class="logo">DRESS CODE</a>
+
+            <div class="footer-links">
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT US</a>
+                <a href="#">PRIVACY POLICY</a>
+            </div>
+        </div>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>DRESS CODE</h3>
+                <p>Understated architectural luxury and modern sartorial integrity. Quality and timeless design.</p>
+                <p>CLIENT SERVICE</p>
+                <p>contact@dresscode.com</p>
+            </div>
+
+            <div>
+                <h3>COLLECTIONS</h3>
+                <p>Spring / Summer</p>
+                <p>Tailoring & Suiting</p>
+                <p>Leather Artifacts</p>
+            </div>
+
+            <div>
+                <h3>ATELIER</h3>
+                <p>Manifesto</p>
+                <p>Materiality</p>
+                <p>Archive</p>
+                <p>Sustainability</p>
+            </div>
+
+            <div>
+                <h3>CORRESPONDENCE</h3>
+                <p>Receive personal editorial announcements, private gallery releases and collection previews.</p>
+                <p>EMAIL ADDRESS — JOIN</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 DRESS CODE. ALL RIGHTS RESERVED.</p>
+            <p>TERMS &nbsp; PRIVACY &nbsp; ACCESSIBILITY</p>
+        </div>
+
+    </footer>
+
 </body>
 </html>

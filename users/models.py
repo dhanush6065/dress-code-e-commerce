@@ -23,6 +23,7 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
+
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)
@@ -31,7 +32,19 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = UserManager()
-    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+
+    profile_picture = models.ImageField(
+        upload_to='profile_pictures/',
+        blank=True,
+        null=True
+    )
+
+    phone_number = models.CharField(
+        max_length=15,
+        blank=True,
+        default=''
+    )
+
 
 class Address(models.Model):
     user = models.ForeignKey(

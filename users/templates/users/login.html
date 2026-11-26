@@ -1,44 +1,100 @@
 
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Dress Code</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
 
-    <h1>Login to Dress Code</h1>
+    <header class="navbar">
+        <a href="{% url 'home' %}" class="logo">DRESS CODE</a>
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+        <nav>
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="#">SHOP</a>
+            <a href="#">CATEGORIES</a>
+        </nav>
 
-    <form method="POST">
-        {% csrf_token %}
+        <a href="{% url 'signup' %}" class="signup-nav">SIGN UP</a>
+    </header>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <main class="login-section">
 
-        <br><br>
+        <div class="login-card">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+            <p class="eyebrow">MEMBER ACCESS</p>
 
-        <br><br>
+            <h1>WELCOME BACK</h1>
 
-        <button type="submit">Login</button>
+            <p class="subtitle">
+                Sign in to continue your style journey.
+            </p>
 
-        <br><br>
+            {% if error %}
+                <p class="error-message">{{ error }}</p>
+            {% endif %}
 
-        <a href="{% url 'forgot_password' %}">Forgot Password?</a>
-    </form>
+            <form method="POST">
+                {% csrf_token %}
 
-    <br>
+                <div class="form-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                </div>
 
-    <p>Or</p>
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
 
-    <a href="{% url 'google_login' %}">
-        <button type="button">Continue with Google</button>
-    </a>
+                <div class="forgot-password">
+                    <a href="{% url 'forgot_password' %}">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit" class="login-button">
+                    SIGN IN
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <a href="{% url 'google_login' %}" class="google-button">
+                Continue with Google
+            </a>
+
+            <p class="signup-text">
+                Don't have an account?
+                <a href="{% url 'signup' %}">Create Account</a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 DRESS CODE. ALL RIGHTS RESERVED.</p>
+    </footer>
 
 </body>
 </html>

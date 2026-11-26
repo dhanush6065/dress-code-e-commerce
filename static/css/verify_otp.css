@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f3;
+    color: #222;
+}
+
+/* Navbar */
+.navbar {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    color: #111;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a,
+.nav-icons a {
+    color: #222;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-icons a {
+    font-size: 22px;
+}
+
+/* Verification section */
+.verification-section {
+    min-height: calc(100vh - 155px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.verification-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 48px 45px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+.eyebrow {
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.verification-card h1 {
+    font-size: 27px;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.description {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.email {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+/* OTP input boxes */
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.otp-box {
+    width: 48px;
+    height: 52px;
+    border: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    font-size: 20px;
+    background: #fff;
+}
+
+.otp-box:focus {
+    border-color: #111;
+}
+
+/* Resend section */
+.resend-section {
+    margin-bottom: 28px;
+}
+
+.resend-section p {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+#resendButton {
+    border: none;
+    background: none;
+    color: #111;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#resendButton:disabled {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.resend-section .timer-text {
+    margin-top: 10px;
+    font-size: 11px;
+}
+
+/* Verify button */
+.verify-button {
+    width: 100%;
+    height: 48px;
+    background: #111;
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+.verify-button:hover {
+    background: #333;
+}
+
+/* Change email */
+.change-email {
+    display: inline-block;
+    margin-top: 25px;
+    color: #555;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+/* Error message */
+.error-message {
+    color: #d00000;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+/* Footer */
+.footer {
+    min-height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    background: #fff;
+    border-top: 1px solid #eee;
+}
+
+.footer p {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .verification-card {
+        padding: 35px 18px;
+    }
+
+    .verification-card h1 {
+        font-size: 22px;
+    }
+
+    .otp-inputs {
+        gap: 6px;
+    }
+
+    .otp-box {
+        width: 40px;
+        height: 46px;
+    }
+
+    .footer {
+        gap: 15px;
+        flex-wrap: wrap;
+        padding: 20px 10px;
+    }
+
+    .footer p {
+        font-size: 9px;
+    }
+}

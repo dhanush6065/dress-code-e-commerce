@@ -41,6 +41,7 @@ def signup(request):
 
     return render(request, 'users/signup.html', {'form': form})
 
+
 def verify_otp(request):
     user_id = request.session.get('pending_user_id')
 
@@ -52,10 +53,58 @@ def verify_otp(request):
     if not user:
         return redirect('signup')
 
+    
+    email_parts = user.email.split('@')
+
+    masked_email = (
+        email_parts[0][0] + '••••••@' + email_parts[1]
+        if email_parts[0]
+        else user.email
+    )
+
     otp_record = OTPVerification.objects.filter(
         user=user,
         purpose='signup'
     ).order_by('-created_at').first()
+
+    context = {
+        'masked_email': masked_email
+    }
+
+    if not otp_record:
+        context['error'] = 'OTP not found. Please sign up again.'
+        return render(request, 'users/verify_otp.html', context)
+
+    if request.method == 'POST':
+        entered_otp = request.POST.get('otp', '')
+
+        if otp_record.attempts >= 5:
+            context['error'] = 'Too many attempts. Please sign up again.'
+            return render(request, 'users/verify_otp.html', context)
+
+        otp_record.attempts += 1
+        otp_record.save()
+
+        if timezone.now() > otp_record.expires_at:
+            context['error'] = 'OTP has expired. Please sign up again.'
+            return render(request, 'users/verify_otp.html', context)
+
+        if check_password(entered_otp, otp_record.otp_hash):
+            user.is_active = True
+            user.save()
+
+            otp_record.delete()
+            request.session.pop('pending_user_id', None)
+
+            return redirect('home')
+
+        context['error'] = 'Invalid OTP. Please try again.'
+        return render(request, 'users/verify_otp.html', context)
+
+    return render(request, 'users/verify_otp.html', context)
+
+
+    
 
     if not otp_record:
         return render(request, 'users/verify_otp.html', {
