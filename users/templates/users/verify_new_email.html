@@ -1,28 +1,109 @@
+
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify New Email - Dress Code</title>
+    <link rel="stylesheet" href="{% static 'css/verify_new_email.css' %}">
 </head>
 <body>
 
-    <h1>Verify Your New Email</h1>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">DRESS CODE</div>
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="#">SHOP</a>
+            <a href="#">CATEGORIES</a>
+        </nav>
 
-    <form method="POST">
-        {% csrf_token %}
+        <div class="nav-icons">
+            <a href="#" aria-label="Search">⌕</a>
+            <a href="#" aria-label="Wishlist">♡</a>
+            <a href="#" aria-label="Cart">▢</a>
+            <a href="{% url 'profile' %}" aria-label="Profile">●</a>
+        </div>
+    </header>
 
-        <label for="otp">Enter OTP:</label>
-        <input type="text" id="otp" name="otp" maxlength="6" required>
+    <!-- Verification Page -->
+    <main class="verification-page">
 
-        <br><br>
+        <section class="verification-card">
 
-        <button type="submit">Verify Email</button>
-    </form>
+            <span class="eyebrow">ACCOUNT SECURITY</span>
 
-    <a href="{% url 'change_email' %}">Back</a>
+            <h1>VERIFY YOUR NEW EMAIL</h1>
+
+            <p class="description">
+                Enter the 6-digit OTP code sent to your new email address.
+            </p>
+
+            {% if error %}
+                <div class="error-message">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <label for="otp" class="otp-label">VERIFICATION CODE</label>
+
+                <input
+                    type="text"
+                    id="otp"
+                    name="otp"
+                    class="otp-input"
+                    maxlength="6"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    placeholder="------"
+                    required
+                >
+
+                <div class="resend-text">
+                    <span class="clock-icon">◷</span>
+                    ENTER THE CODE SENT TO YOUR EMAIL
+                </div>
+
+                <button type="submit" class="verify-button">
+                    VERIFY EMAIL <span>→</span>
+                </button>
+            </form>
+
+            <div class="cancel-section">
+                <a href="{% url 'change_email' %}">
+                    ← CANCEL AND RETURN TO CHANGE EMAIL
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Security Notice -->
+        <div class="security-notice">
+            <span>♙</span>
+            ENCRYPTED ATELIER PROTOCOL / SSL 256-BIT
+            <span class="session-id">SESSION ID: DC-9842</span>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <strong>DRESS CODE</strong>
+            <span>© 2026 DRESS CODE ATELIER. ALL RIGHTS RESERVED.</span>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+            <a href="#">PRIVACY POLICY</a>
+        </div>
+    </footer>
 
 </body>
 </html>

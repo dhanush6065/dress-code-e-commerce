@@ -1,0 +1,336 @@
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #faf8f5;
+    color: #111111;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 38px;
+}
+
+.nav-links a,
+.nav-icons a {
+    text-decoration: none;
+    color: #111111;
+}
+
+.nav-links a {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.nav-icons a {
+    font-size: 19px;
+}
+
+/* =========================
+   VERIFICATION LAYOUT
+========================= */
+.verification-page {
+    min-height: 650px;
+    padding: 110px 20px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #faf8f5;
+}
+
+/* =========================
+   VERIFICATION CARD
+========================= */
+.verification-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px 30px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.eyebrow {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #777777;
+    margin-bottom: 14px;
+}
+
+.verification-card h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 14px;
+}
+
+.description {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   ERROR MESSAGE
+========================= */
+.error-message {
+    background: #fff3f3;
+    border: 1px solid #f0cccc;
+    color: #b00020;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   OTP INPUT
+========================= */
+.otp-label {
+    display: block;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #555555;
+    margin-bottom: 12px;
+}
+
+.otp-input {
+    width: 100%;
+    height: 55px;
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid transparent;
+    outline: none;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 12px;
+    font-family: inherit;
+    color: #111111;
+}
+
+.otp-input:focus {
+    border-color: #111111;
+    background: #ffffff;
+}
+
+.otp-input::placeholder {
+    color: #cccccc;
+    letter-spacing: 8px;
+}
+
+/* =========================
+   RESEND / INFO
+========================= */
+.resend-text {
+    margin-top: 22px;
+    margin-bottom: 25px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #777777;
+    line-height: 1.8;
+}
+
+.clock-icon {
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+/* =========================
+   VERIFY BUTTON
+========================= */
+.verify-button {
+    width: 100%;
+    height: 50px;
+    background: #111111;
+    border: 1px solid #111111;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.verify-button:hover {
+    background: #333333;
+}
+
+.verify-button span {
+    font-size: 16px;
+}
+
+/* =========================
+   CANCEL LINK
+========================= */
+.cancel-section {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+}
+
+.cancel-section a {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    color: #333333;
+    text-decoration: underline;
+}
+
+/* =========================
+   SECURITY NOTICE
+========================= */
+.security-notice {
+    width: 100%;
+    max-width: 420px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #777777;
+    line-height: 1.8;
+}
+
+.session-id {
+    white-space: nowrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    border-top: 1px solid #eeeeee;
+    padding: 35px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-brand strong {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.footer-brand span {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #777777;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #555555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 750px) {
+    .navbar {
+        padding: 0 5%;
+        height: 70px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .verification-page {
+        padding: 70px 20px 60px;
+        min-height: 600px;
+    }
+
+    .verification-card {
+        padding: 35px 25px 25px;
+    }
+
+    .security-notice {
+        margin-top: 50px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 25px;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 450px) {
+    .logo {
+        font-size: 17px;
+    }
+
+    .nav-icons {
+        gap: 14px;
+    }
+
+    .verification-card h1 {
+        font-size: 18px;
+    }
+
+    .otp-input {
+        letter-spacing: 8px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}

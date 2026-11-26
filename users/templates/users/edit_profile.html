@@ -1,21 +1,163 @@
+
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile - Dress Code</title>
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
 </head>
 <body>
 
-    <h1>Edit My Profile</h1>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">DRESS CODE</div>
 
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="#">SHOP</a>
+            <a href="#">CATEGORIES</a>
+        </nav>
 
-        {{ form.as_p }}
+        <div class="nav-icons">
+            <a href="#" aria-label="Search">⌕</a>
+            <a href="#" aria-label="Wishlist">♡</a>
+            <a href="#" aria-label="Cart">▢</a>
+            <a href="{% url 'profile' %}" aria-label="Profile">●</a>
+        </div>
+    </header>
 
-        <button type="submit">Save Changes</button>
-    </form>
+    <!-- Account Layout -->
+    <main class="account-layout">
 
-    <a href="{% url 'profile' %}">Cancel</a>
+        <!-- Sidebar -->
+        <aside class="account-sidebar">
+            <p class="sidebar-heading">ACCOUNT NAVIGATION</p>
+
+            <nav class="account-menu">
+                <a href="#" class="menu-item">DASHBOARD <span>›</span></a>
+
+                <a href="{% url 'profile' %}" class="menu-item active">
+                    MY PROFILE <span>›</span>
+                </a>
+
+                <a href="#" class="menu-item">ORDERS &amp; RETURNS <span>›</span></a>
+                <a href="#" class="menu-item">SAVED ITEMS <span>›</span></a>
+                <a href="{% url 'my_addresses' %}" class="menu-item">
+                    ADDRESSES &amp; DELIVERY <span>›</span>
+                </a>
+                <a href="#" class="menu-item">PAYMENT METHODS <span>›</span></a>
+                <a href="#" class="menu-item">SECURITY SETTINGS <span>›</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <form method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-link">
+                        ⇥ &nbsp; LOG OUT
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="edit-content">
+
+            <p class="breadcrumb">ACCOUNT / MY PROFILE / EDIT</p>
+
+            <div class="page-heading">
+                <span class="eyebrow">PERSONAL INFORMATION</span>
+                <h1>EDIT PROFILE</h1>
+                <p>Update your personal details below.</p>
+            </div>
+
+            <div class="edit-card">
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                        <div class="form-errors">
+                            Please correct the errors below.
+                        </div>
+                    {% endif %}
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="{{ form.full_name.id_for_label }}">FULL NAME</label>
+                            <input
+                                type="text"
+                                name="{{ form.full_name.name }}"
+                                id="{{ form.full_name.id_for_label }}"
+                                value="{{ form.full_name.value|default:'' }}"
+                                maxlength="150"
+                                required
+                            >
+
+                            {% for error in form.full_name.errors %}
+                                <p class="field-error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.phone_number.id_for_label }}">PHONE NUMBER</label>
+                            <input
+                                type="text"
+                                name="{{ form.phone_number.name }}"
+                                id="{{ form.phone_number.id_for_label }}"
+                                value="{{ form.phone_number.value|default:'' }}"
+                                maxlength="15"
+                            >
+
+                            {% for error in form.phone_number.errors %}
+                                <p class="field-error">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    <div class="email-notice">
+                        <span class="notice-icon">ⓘ</span>
+                        <p>
+                            Registered email: <strong>{{ user.email }}</strong>.
+                            To change your email, use
+                            <a href="{% url 'change_email' %}">Change Email</a>.
+                        </p>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="{% url 'profile' %}" class="cancel-button">
+                            CANCEL
+                        </a>
+
+                        <button type="submit" class="save-button">
+                            SAVE CHANGES
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <strong>DRESS CODE</strong>
+            <span>© 2026 DRESS CODE ATELIER. ALL RIGHTS RESERVED.</span>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+            <a href="#">PRIVACY POLICY</a>
+        </div>
+    </footer>
 
 </body>
 </html>

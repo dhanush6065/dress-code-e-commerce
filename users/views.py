@@ -540,3 +540,9 @@ def my_addresses(request):
     return render(request, 'users/my_addresses.html', {
         'addresses': addresses
     })
+
+def shop(request):
+    return render(request, 'users/shop.html')
+
+def categories(request):
+    return render(request, 'users/categories.html')

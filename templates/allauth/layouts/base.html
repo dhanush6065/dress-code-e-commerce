@@ -1,0 +1,95 @@
+
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}Dress Code{% endblock head_title %}</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #FAF8F5;
+            color: #111111;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .allauth-container {
+            max-width: 500px;
+            margin: 60px auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .brand {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .allauth-content {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #111;
+        }
+
+        button, input[type="submit"] {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        input {
+            max-width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+    </style>
+
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+
+<body>
+
+    {% block body %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <div class="allauth-container">
+            <div class="brand">DRESS CODE</div>
+
+            <div class="allauth-content">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+    {% endblock body %}
+
+    {% block extra_body %}{% endblock extra_body %}
+
+</body>
+</html>
+

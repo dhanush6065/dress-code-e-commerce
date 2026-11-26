@@ -1,0 +1,375 @@
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 75px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+    background: #ffffff;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #555555;
+    position: relative;
+    padding: 10px 0;
+}
+
+.nav-links a.active {
+    color: #111111;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #111111;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-icons a {
+    font-size: 19px;
+    color: #111111;
+}
+
+/* =========================
+   CATEGORY PAGE
+========================= */
+
+.categories-page {
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 5% 70px;
+}
+
+/* Heading */
+
+.category-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.eyebrow {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #777777;
+    margin-bottom: 15px;
+}
+
+.category-heading h1 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #777777;
+}
+
+/* =========================
+   MAIN CATEGORY CARDS
+========================= */
+
+.main-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.main-category-card {
+    text-align: center;
+}
+
+.main-category-card > img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+}
+
+.main-category-card h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+/* Category Tags */
+
+.category-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 25px;
+}
+
+.category-tags a {
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: #777777;
+}
+
+.category-tags span {
+    font-size: 7px;
+    color: #999999;
+}
+
+/* Category Buttons */
+
+.category-button {
+    display: block;
+    width: 100%;
+    background: #111111;
+    color: #ffffff;
+    padding: 14px 10px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    transition: background 0.3s;
+}
+
+.category-button:hover {
+    background: #444444;
+}
+
+/* =========================
+   CURATED EDITS
+========================= */
+
+.curated-edits {
+    margin-top: 75px;
+}
+
+.curated-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.curated-heading h2 {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.curated-heading h2 span {
+    margin-left: 5px;
+}
+
+.curated-heading > a {
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* Edit Grid */
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.edit-card {
+    display: flex;
+    flex-direction: column;
+    background: #f5f4f4;
+    padding: 25px 22px;
+    min-height: 175px;
+    transition: background 0.3s;
+}
+
+.edit-card:hover {
+    background: #eeeeee;
+}
+
+.edit-number {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+
+.edit-card h3 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.edit-card > p:not(.edit-number) {
+    font-size: 10px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.edit-card > span {
+    font-size: 8px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    border-top: 1px solid #eeeeee;
+    padding: 25px 8%;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #777777;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: #555555;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .main-categories {
+        gap: 15px;
+    }
+
+    .main-category-card > img {
+        height: 280px;
+    }
+
+    .category-tags {
+        gap: 5px;
+    }
+
+    .edit-grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-icons {
+        gap: 15px;
+    }
+
+    .categories-page {
+        padding: 40px 5%;
+    }
+
+    .category-heading h1 {
+        font-size: 22px;
+    }
+
+    .main-categories {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .main-category-card > img {
+        height: 420px;
+    }
+
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curated-edits {
+        margin-top: 50px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
