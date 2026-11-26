@@ -4,6 +4,7 @@ from orders.models import Order
 from users.models import User
 from django.views.decorators.http import require_POST
 from django.core.paginator import Paginator
+from django.contrib.auth import logout
 
 @staff_member_required
 def home(request):
@@ -55,3 +56,10 @@ def toggle_user_status(request, user_id):
     user.save()
 
     return redirect('user_list')
+
+
+@staff_member_required
+@require_POST
+def admin_logout(request):
+    logout(request)
+    return redirect('admin:login')
