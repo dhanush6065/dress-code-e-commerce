@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from django.views.decorators.cache import never_cache
 # Create your views here.
 def home(request):
     return render(request, 'users/index.html')
@@ -263,11 +264,11 @@ def set_new_password(request):
 
     return render(request, 'users/set_new_password.html')
 
-
+@never_cache
 @login_required
 def customer_profile(request):
     return render(request, 'users/profile.html')
-
+@never_cache
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
@@ -282,7 +283,7 @@ def edit_profile(request):
     return render(request, 'users/edit_profile.html', {
         'form': form
     })
-
+@never_cache
 @login_required
 def change_password(request):
     if request.method == 'POST':
@@ -299,7 +300,7 @@ def change_password(request):
         'form': form
     })
 
-
+@never_cache
 @login_required
 def change_email(request):
     if request.method == 'POST':
@@ -342,7 +343,7 @@ def change_email(request):
 
     return render(request, 'users/change_email.html')
 
-
+@never_cache
 @login_required
 def verify_new_email(request):
     new_email = request.session.get('new_email')
@@ -409,7 +410,7 @@ def resend_signup_otp(request):
 
     return redirect('verify_otp')
 
-
+@never_cache
 @login_required
 def add_address(request):
     if request.method == 'POST':
@@ -428,7 +429,7 @@ def add_address(request):
         'form': form
     })
 
-
+@never_cache
 @login_required
 def edit_address(request, address_id):
     address = get_object_or_404(
@@ -451,7 +452,7 @@ def edit_address(request, address_id):
     })
 
 
-
+@never_cache
 @login_required
 @require_POST
 def delete_address(request, address_id):
@@ -465,7 +466,7 @@ def delete_address(request, address_id):
 
     return redirect('profile')
 
-
+@never_cache
 @login_required
 @require_POST
 def set_default_address(request, address_id):
