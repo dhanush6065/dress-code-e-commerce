@@ -26,10 +26,22 @@
             <a href="#" aria-label="Cart">♧</a>
 
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}" aria-label="Profile">♙</a>
+                <a href="{% url 'profile' %}" aria-label="Profile" class="profile-icon">
             {% else %}
-                <a href="{% url 'login' %}" aria-label="Login">♙</a>
+                <a href="{% url 'login' %}" aria-label="Login" class="profile-icon">
             {% endif %}
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="22" height="22"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.6"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>
+                    </svg>
+                </a>
         </div>
     </header>
 
@@ -43,7 +55,8 @@
         </div>
 
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80" alt="Fashion model wearing modern clothing">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=80"
+                 alt="Fashion model wearing modern clothing">
         </div>
     </section>
 
@@ -56,19 +69,22 @@
 
         <div class="category-grid">
             <a href="{% url 'categories' %}" class="category-card">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80" alt="Women's fashion">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80"
+                     alt="Women's fashion">
                 <h3>WOMEN</h3>
                 <span>EXPLORE →</span>
             </a>
 
             <a href="{% url 'categories' %}" class="category-card">
-                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80" alt="Men's fashion">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=600&q=80"
+                     alt="Men's fashion">
                 <h3>MEN</h3>
                 <span>EXPLORE →</span>
             </a>
 
             <a href="{% url 'categories' %}" class="category-card">
-                <img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=600&q=80" alt="Kids fashion">
+                <img src="https://images.unsplash.com/photo-1503919005314-30d93d07d823?auto=format&fit=crop&w=600&q=80"
+                     alt="Kids fashion">
                 <h3>KIDS</h3>
                 <span>EXPLORE →</span>
             </a>
@@ -86,7 +102,8 @@
 
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80" alt="White shirt">
+                    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=600&q=80"
+                         alt="White shirt">
                 </div>
                 <p class="product-category">SHIRTING</p>
                 <h3>Oversized Linen Shirt</h3>
@@ -96,7 +113,8 @@
 
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Black blazer">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80"
+                         alt="Black blazer">
                 </div>
                 <p class="product-category">TAILORING</p>
                 <h3>Structured Wool Blazer</h3>
@@ -106,7 +124,8 @@
 
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Fashion trousers">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80"
+                         alt="Fashion trousers">
                 </div>
                 <p class="product-category">TROUSERS</p>
                 <h3>Tailored Pleated Trousers</h3>
@@ -116,7 +135,8 @@
 
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Black dress">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                         alt="Black dress">
                 </div>
                 <p class="product-category">DRESSES</p>
                 <h3>Slim Midi Dress</h3>
