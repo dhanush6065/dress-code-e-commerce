@@ -1,0 +1,249 @@
+
+/* ================================
+   DRESS CODE - ADMIN LOGIN
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #FFFFFF;
+    color: #111111;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 60px 20px 35px;
+}
+
+/* Brand */
+
+.brand-header {
+    text-align: center;
+    margin-bottom: 95px;
+}
+
+.brand-header h1 {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    letter-spacing: 6px;
+    font-weight: 500;
+    color: #111111;
+}
+
+.brand-header p {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #999999;
+    margin-top: 7px;
+}
+
+/* Login card */
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid #EEEEEE;
+    padding: 32px 30px 25px;
+    background: #FFFFFF;
+}
+
+/* Access label */
+
+.access-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #F5F5F5;
+    padding: 5px 8px;
+    font-size: 8px;
+    letter-spacing: 1.2px;
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.access-dot {
+    width: 6px;
+    height: 6px;
+    background: #4C9B75;
+    border-radius: 50%;
+}
+
+/* Heading */
+
+.login-card h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.login-description {
+    font-size: 11px;
+    color: #888888;
+    margin-bottom: 27px;
+}
+
+/* Form */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+}
+
+.label-row label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.label-row span {
+    font-size: 8px;
+    color: #AAAAAA;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 42px;
+    border: none;
+    background: #F5F5F7;
+    padding: 0 13px;
+    font-size: 11px;
+    color: #111111;
+    outline: none;
+}
+
+.form-group input:focus {
+    border: 1px solid #111111;
+    background: #FFFFFF;
+}
+
+/* Session row */
+
+.session-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 25px;
+}
+
+.session-row label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 8px;
+    letter-spacing: 0.4px;
+    color: #555555;
+}
+
+.session-row input[type="checkbox"] {
+    accent-color: #111111;
+    width: 12px;
+    height: 12px;
+}
+
+.encryption-label {
+    font-size: 8px;
+    color: #AAAAAA;
+    letter-spacing: 0.4px;
+}
+
+/* Login button */
+
+.login-card button {
+    width: 100%;
+    height: 44px;
+    background: #111111;
+    color: #FFFFFF;
+    border: none;
+    font-size: 9px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.login-card button:hover {
+    background: #333333;
+}
+
+/* Error message */
+
+.error-message {
+    background: #FFF1F1;
+    color: #B42318;
+    border: 1px solid #F1D0D0;
+    padding: 10px;
+    font-size: 11px;
+    margin-bottom: 18px;
+}
+
+/* Card footer */
+
+.card-footer {
+    border-top: 1px solid #EEEEEE;
+    margin-top: 23px;
+    padding-top: 18px;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #AAAAAA;
+}
+
+/* Page footer */
+
+.page-footer {
+    margin-top: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: #999999;
+    margin-bottom: 12px;
+}
+
+.page-footer p {
+    font-size: 7px;
+    letter-spacing: 1px;
+    color: #BBBBBB;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .login-page {
+        padding: 50px 18px 25px;
+    }
+
+    .brand-header {
+        margin-bottom: 65px;
+    }
+
+    .login-card {
+        padding: 27px 22px 23px;
+    }
+
+    .page-footer {
+        padding-top: 65px;
+    }
+}
+

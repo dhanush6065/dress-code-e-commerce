@@ -1,0 +1,107 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Dress Code</title>
+    <link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+</head>
+<body>
+
+<div class="login-page">
+
+    <header class="brand-header">
+        <h1>DRESS CODE</h1>
+        <p>ADMINISTRATIVE PORTAL</p>
+    </header>
+
+    <main class="login-card">
+
+        <div class="access-label">
+            <span class="access-dot"></span>
+            INTERNAL ACCESS
+        </div>
+
+        <h2>ADMIN LOGIN</h2>
+        <p class="login-description">
+            Enter your credentials to access the admin console.
+        </p>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="email">CORPORATE EMAIL</label>
+                    <span>REQUIRED</span>
+                </div>
+
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="admin@dresscode.com"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="password">PASSWORD</label>
+                    <span>FORGOT KEY?</span>
+                </div>
+
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <div class="session-row">
+                <label>
+                    <input type="checkbox" name="preserve_session">
+                    PRESERVE SESSION
+                </label>
+
+                <span class="encryption-label">♧ TLS ENCRYPTED</span>
+            </div>
+
+            <button type="submit">
+                AUTHORIZE &amp; CONTINUE →
+            </button>
+
+        </form>
+
+        <div class="card-footer">
+            AUTHORIZED STAFF ONLY • 256-BIT AES
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-links">
+            <span>PRIVACY</span>
+            <span>•</span>
+            <span>TERMS</span>
+            <span>•</span>
+            <span>STATUS</span>
+        </div>
+
+        <p>© 2026 DRESS CODE STUDIOS. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

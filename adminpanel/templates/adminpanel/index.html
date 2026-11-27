@@ -1,20 +1,337 @@
-
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dress Code Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Overview | Dress Code</title>
+
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
 </head>
 <body>
-    <h1>Welcome to Dress Code Admin Panel</h1>
 
-    <a href="{% url 'user_list' %}">Manage Users</a>
+<div class="admin-layout">
 
-    <br><br>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-    <form method="POST" action="{% url 'admin_logout' %}">
-        {% csrf_token %}
-        <button type="submit">Admin Logout</button>
-    </form>
+        <div class="brand">
+            DRESS CODE
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'admin_home' %}" class="nav-link active">
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Orders</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Products</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Categories</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Brands</span>
+            </a>
+
+            <a href="{% url 'user_list' %}" class="nav-link">
+                <span>Users</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Coupons</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Reports</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>Referral</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-logout">
+
+            <form method="POST" action="{% url 'admin_logout' %}">
+                {% csrf_token %}
+
+                <button type="submit" class="logout-button">
+                    <span>Logout</span>
+                </button>
+            </form>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left"></div>
+
+            <div class="topbar-right">
+
+                <button class="notification-button" type="button">
+                    ♧
+                </button>
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-profile-text">
+                        <span class="admin-name">Admin Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section class="dashboard-content">
+
+            <!-- PAGE HEADING -->
+            <div class="page-heading">
+
+                <div class="heading-left">
+
+                    <span class="live-label">
+                        <span class="live-dot"></span>
+                        LIVE MANAGEMENT
+                    </span>
+
+                    <h1>Admin Overview</h1>
+
+                    <p class="welcome-text">
+                        Welcome back, Admin. Here's what's happening with your store today.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <!-- SALES -->
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span class="stat-label">TOTAL SALES</span>
+                    </div>
+
+                    <h2>₹0.00</h2>
+
+                    <p class="stat-note">
+                        Store revenue
+                    </p>
+
+                </div>
+
+
+                <!-- ORDERS -->
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span class="stat-label">TOTAL ORDERS</span>
+                    </div>
+
+                    <h2>0</h2>
+
+                    <p class="stat-note">
+                        Orders received
+                    </p>
+
+                </div>
+
+
+                <!-- CUSTOMERS -->
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span class="stat-label">TOTAL CUSTOMERS</span>
+                    </div>
+
+                    <h2>0</h2>
+
+                    <p class="stat-note">
+                        Registered customers
+                    </p>
+
+                </div>
+
+
+                <!-- PRODUCTS -->
+                <div class="stat-card">
+
+                    <div class="stat-top">
+                        <span class="stat-label">TOTAL PRODUCTS</span>
+                    </div>
+
+                    <h2>0</h2>
+
+                    <p class="stat-note">
+                        Products in inventory
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOWER DASHBOARD -->
+            <section class="dashboard-lower">
+
+
+                <!-- RECENT ORDERS -->
+                <div class="orders-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <h2>Recent Orders</h2>
+
+                            <p>
+                                Latest transactions across your store.
+                            </p>
+                        </div>
+
+                        <a href="#" class="view-all">
+                            View All Orders →
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="orders-table">
+
+                            <thead>
+                                <tr>
+                                    <th>ORDER ID</th>
+                                    <th>CUSTOMER</th>
+                                    <th>DATE</th>
+                                    <th>AMOUNT</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td colspan="5" class="empty-orders">
+                                        No orders available yet.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="quick-actions-card">
+
+                    <h2>Quick Actions</h2>
+
+                    <div class="quick-actions-list">
+
+                        <a href="#" class="quick-action">
+
+                            <span class="quick-icon">＋</span>
+
+                            <span>Add Product</span>
+
+                            <span class="action-arrow">→</span>
+
+                        </a>
+
+
+                        <a href="#" class="quick-action">
+
+                            <span class="quick-icon">◇</span>
+
+                            <span>Create Offer</span>
+
+                            <span class="action-arrow">→</span>
+
+                        </a>
+
+
+                        <a href="{% url 'user_list' %}" class="quick-action">
+
+                            <span class="quick-icon">♙</span>
+
+                            <span>Manage Users</span>
+
+                            <span class="action-arrow">→</span>
+
+                        </a>
+
+
+                        <a href="#" class="quick-action">
+
+                            <span class="quick-icon">▥</span>
+
+                            <span>View Reports</span>
+
+                            <span class="action-arrow">→</span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+
+                <span>DRESS CODE</span>
+
+                <span>ADMIN MANAGEMENT</span>
+
+                <span>CONFIDENTIAL</span>
+
+                <span>SECURE ADMIN CONSOLE</span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 </html>
