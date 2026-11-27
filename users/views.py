@@ -157,7 +157,7 @@ def customer_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('profile')
 
         return render(request, 'users/login.html', {
             'error': 'Invalid email or password.'
@@ -546,3 +546,5 @@ def shop(request):
 
 def categories(request):
     return render(request, 'users/categories.html')
+
+
