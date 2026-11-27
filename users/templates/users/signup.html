@@ -1,5 +1,4 @@
-
-{% load static %}
+ {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +15,8 @@
 
         <nav>
             <a href="{% url 'home' %}">HOME</a>
-            <a href="#">SHOP</a>
-            <a href="#">CATEGORIES</a>
+            <a href="{% url 'shop' %}">SHOP</a>
+            <a href="{% url 'categories' %}">CATEGORIES</a>
         </nav>
 
         <a href="{% url 'login' %}" class="login-nav">SIGN IN</a>

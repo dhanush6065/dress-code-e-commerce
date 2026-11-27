@@ -11,18 +11,20 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header class="navbar">
         <a href="{% url 'home' %}" class="logo">DRESS CODE</a>
 
         <nav>
             <a href="{% url 'home' %}">HOME</a>
-            <a href="#">SHOP</a>
-            <a href="#">CATEGORIES</a>
+            <a href="{% url 'shop' %}">SHOP</a>
+            <a href="{% url 'categories' %}">CATEGORIES</a>
         </nav>
 
         <a href="{% url 'signup' %}" class="signup-nav">SIGN UP</a>
     </header>
 
+    <!-- Login Section -->
     <main class="login-section">
 
         <div class="login-card">
@@ -64,6 +66,7 @@
                     >
                 </div>
 
+                <!-- Forgot Password -->
                 <div class="forgot-password">
                     <a href="{% url 'forgot_password' %}">
                         Forgot Password?
@@ -75,6 +78,7 @@
                 </button>
             </form>
 
+            <!-- Google Login -->
             <div class="divider">
                 <span>OR</span>
             </div>
@@ -83,6 +87,7 @@
                 Continue with Google
             </a>
 
+            <!-- Signup Link -->
             <p class="signup-text">
                 Don't have an account?
                 <a href="{% url 'signup' %}">Create Account</a>
@@ -92,6 +97,7 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>© 2026 DRESS CODE. ALL RIGHTS RESERVED.</p>
     </footer>

@@ -1,0 +1,205 @@
+<escape>{% load static %}</escape>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Dress Code</title>
+    <link rel="stylesheet" href="{% static 'products/css/product_detail.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+<header class="navbar">
+    <a href="{% url 'home' %}" class="logo">DRESS CODE</a>
+
+    <nav class="nav-links">
+        <a href="{% url 'home' %}">HOME</a>
+        <a href="{% url 'shop' %}">SHOP</a>
+        <a href="{% url 'categories' %}">CATEGORIES</a>
+    </nav>
+
+    <div class="nav-icons">
+        <!-- Search -->
+        <a href="{% url 'shop' %}" aria-label="Search">⌕</a>
+
+        <!-- Wishlist -->
+        <a href="{% url 'wishlist' %}" aria-label="Wishlist">♡</a>
+
+        <!-- Cart -->
+        <a href="#" aria-label="Cart">♧</a>
+
+        <!-- Profile -->
+        <a href="{% url 'profile' %}" aria-label="Profile">♙</a>
+    </div>
+</header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="<escape>{% url 'home' %}</escape>">HOME</a>
+        <span>/</span>
+        <a href="<escape>{% url 'shop' %}</escape>">OUTERWEAR</a>
+        <span>/</span>
+        <span class="current">SCULPTURAL WOOL-CASHMERE BLAZER</span>
+    </div>
+
+    <!-- Product Details -->
+    <main class="product-detail">
+
+        <!-- Product Gallery -->
+        <section class="product-gallery">
+
+            <div class="thumbnail-list">
+                <button class="thumbnail active">
+                    <img src="https://placehold.co/100x130?text=Image+1" alt="Product view 1">
+                </button>
+
+                <button class="thumbnail">
+                    <img src="https://placehold.co/100x130?text=Image+2" alt="Product view 2">
+                </button>
+
+                <button class="thumbnail">
+                    <img src="https://placehold.co/100x130?text=Image+3" alt="Product view 3">
+                </button>
+            </div>
+
+            <div class="main-image">
+                <img id="mainProductImage"
+                     src="https://placehold.co/600x800?text=Product+Image"
+                     alt="Sculptural Wool-Cashmere Blazer">
+            </div>
+
+        </section>
+
+        <!-- Product Information -->
+        <section class="product-info">
+
+            <p class="collection-label">PERMANENT COLLECTION</p>
+
+            <h1>Sculptural Wool-Cashmere Blazer</h1>
+
+            <div class="price-section">
+                <span class="price">$480</span>
+                <span class="tax-info">Taxes and duties included</span>
+            </div>
+
+            <p class="stock-status">
+                <span class="stock-dot"></span>
+                IN STOCK · READY TO DISPATCH
+            </p>
+
+            <p class="product-description">
+                Crafted from a refined blend of virgin wool and combed cashmere.
+                Features structured shoulders, a relaxed double-breasted
+                silhouette, and genuine horn buttons.
+            </p>
+
+            <!-- Color Selection -->
+            <div class="selection-section">
+
+                <div class="selection-heading">
+                    <span>COLOR</span>
+                    <span id="selectedColorName">Oat Camel</span>
+                </div>
+
+                <div class="color-options">
+                    <button class="color-option selected"
+                            style="background-color: #c5ad96;"
+                            aria-label="Oat Camel"
+                            data-color="Oat Camel"></button>
+
+                    <button class="color-option"
+                            style="background-color: #f4f0e8;"
+                            aria-label="Ivory"
+                            data-color="Ivory"></button>
+
+                    <button class="color-option"
+                            style="background-color: #191919;"
+                            aria-label="Black"
+                            data-color="Black"></button>
+                </div>
+
+            </div>
+
+            <!-- Size Selection -->
+            <div class="selection-section">
+
+                <div class="selection-heading">
+                    <span>SIZE</span>
+                    <a href="#" class="size-guide">SIZE GUIDE</a>
+                </div>
+
+                <div class="size-options">
+                    <button class="size-option">S</button>
+                    <button class="size-option selected">M</button>
+                    <button class="size-option">L</button>
+                    <button class="size-option">XL</button>
+                    <button class="size-option">XXL</button>
+                </div>
+
+            </div>
+
+            <!-- Quantity and Cart -->
+            <div class="purchase-actions">
+
+                <div class="quantity-selector">
+                    <button type="button" id="decreaseQuantity">−</button>
+                    <span id="quantity">1</span>
+                    <button type="button" id="increaseQuantity">+</button>
+                </div>
+
+                <button class="add-to-cart">
+                    ♧ ADD TO CART
+                </button>
+
+            </div>
+
+            <button class="add-to-wishlist">
+                ♡ ADD TO WISHLIST
+            </button>
+
+            <!-- Product Information Accordion -->
+            <div class="product-accordions">
+
+                <details>
+                    <summary>FABRIC & COMPOSITION</summary>
+                    <p>
+                        Premium wool and combed cashmere blend.
+                        Detailed composition information will be provided
+                        with the product data.
+                    </p>
+                </details>
+
+                <details>
+                    <summary>SHIPPING & RETURNS</summary>
+                    <p>
+                        Shipping and return information will be displayed here.
+                    </p>
+                </details>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-brand">
+            <strong>DRESS CODE</strong>
+            <span>|</span>
+            <span>© 2026 DRESS CODE ATELIER. All rights reserved.</span>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT US</a>
+            <a href="#">PRIVACY POLICY</a>
+        </div>
+
+    </footer>
+
+</body>
+</html>

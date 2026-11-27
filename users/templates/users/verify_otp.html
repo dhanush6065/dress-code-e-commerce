@@ -1,4 +1,3 @@
-
 {% load static %}
 
 <!DOCTYPE html>
@@ -16,12 +15,12 @@
 
         <nav>
             <a href="{% url 'home' %}">HOME</a>
-            <a href="#">SHOP</a>
-            <a href="#">CATEGORIES</a>
+            <a href="{% url 'shop' %}">SHOP</a>
+            <a href="{% url 'categories' %}">CATEGORIES</a>
         </nav>
 
         <div class="nav-icons">
-            <a href="#" aria-label="Search">⌕</a>
+            <a href="{% url 'shop' %}" aria-label="Search">⌕</a>
             <a href="#" aria-label="Wishlist">♡</a>
             <a href="#" aria-label="Cart">♧</a>
             <a href="{% url 'login' %}" aria-label="Login">♙</a>
